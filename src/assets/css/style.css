@@ -1,0 +1,295 @@
+/*
+Template Name: Personal Site
+Author: Eleonora Rocchi
+Author URI: github.com/eleonorarocchi
+Description: Tunis - Personal Site
+Version: 1.0
+*/
+
+/*------------------------------------------------------------------
+[Table of contents]
+	+ General
+	    - Miscellaneous
+	+ Header
+		- Desktop Navigation
+		- Mobile Navigation
+	+ Pages
+		- Homepage
+	- Responsive Design Styles
+-------------------------------------------------------------------*/
+
+/* [ GENERAL ] */
+/*================================================== */
+
+/*** Miscellaneous ***/
+
+html {
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.6;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  background-color: #111;
+}
+
+.poppins-font {
+  font-family: 'Poppins', sans-serif;
+}
+
+.open-sans-font {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* [ HEADER ] */
+/*================================================== */
+
+/*** Desktop Navigation ***/
+
+@media (min-width: 992px) {
+
+  /*** Navigation ***/
+
+  .header {
+    position: fixed;
+    right: 30px;
+    bottom: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 200px);
+    top: 100px;
+    opacity: 1;
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+  }
+
+  .header ul.icon-menu {
+    margin: 0;
+    padding: 0;
+  }
+
+  .header ul.icon-menu li.icon-box {
+    width: 50px;
+    height: 50px;
+    list-style: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: .3s;
+    margin: 20px 0;
+    border-radius: 50%;
+    background: #2b2a2a;
+  }
+
+  .header ul.icon-menu li.icon-box i {
+    color: #ddd;
+    font-size: 19px;
+    transition: .3s;
+  }
+
+  .header ul.icon-menu li.icon-box.active,
+  .header ul.icon-menu li.icon-box:hover,
+  .header ul.icon-menu li.icon-box.active i,
+  .header ul.icon-menu li.icon-box:hover i {
+    color: #fff;
+  }
+
+  .header .icon-box a {
+    display: block;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+  }
+
+  .header .icon-box i.fa {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .header .icon-menu i {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    font-size: 35px;
+    top: 15px;
+  }
+
+  .header .icon-box h2 {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    color: #fff;
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all .3s;
+    border-radius: 30px;
+    text-transform: uppercase;
+    padding: 0 25px 0 30px;
+    height: 50px;
+    white-space: nowrap;
+  }
+
+  .header .icon-box a:hover h2 {
+    opacity: 1;
+    right: 27px;
+    margin: 0;
+    text-align: center;
+    border-radius: 30px 0 0 30px;
+  }
+}
+
+/* [ RESPONSIVE DESIGN STYLES ] */
+@media (max-width: 1350px) and (min-width: 992px) {
+  .container {
+    max-width: calc(100% - 195px);
+  }
+}
+
+/* Mobile  Navigation */
+
+@media (max-width: 991px) {
+   #menuToggle {
+    display: inline-block;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1111;
+    user-select: none;
+    padding: 19px 0 0 16px;
+    width: 54px;
+    height: 54px;
+    border-radius: 5px;
+    background: #252525;
+  }
+
+  #menuToggle input {
+    display: flex;
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+
+  #menuToggle > span {
+    display: flex;
+    width: 23px;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #ffffff;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+    opacity 0.55s ease;
+  }
+
+  #menuToggle > span:first-child {
+    transform-origin: 0 0;
+  }
+
+  #menuToggle > span:nth-last-child(2) {
+    transform-origin: 0 100%;
+  }
+
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(4px, 0);
+    background: #fff;
+  }
+
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(2px, 4px);
+  }
+
+  #menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding-top: 60px;
+    background-color: #252525;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0 0;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+
+  #menuToggle input:checked ~ ul {
+    transform: none;
+  }
+
+  #menu li {
+    position: relative;
+    padding-left: 30px;
+  }
+
+  #menu li:after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    width: calc(100% - 60px);
+    background: #333;
+    left: 30px;
+  }
+
+  #menu li:last-child:after {
+    display: none;
+  }
+
+  #menu li.active a span {
+    font-weight: 600;
+  }
+
+  #menu li a {
+    color: #fff;
+    text-transform: uppercase;
+    transition-delay: 2s;
+    font-size: 26px;
+    display: block;
+    text-decoration: none;
+    padding: 14px 0;
+    position: relative;
+  }
+
+  #menu li a span {
+    position: absolute;
+    left: 50px;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+

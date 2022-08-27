@@ -1,0 +1,7 @@
+//jsconfig.json
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": "./src"
+  }
+}

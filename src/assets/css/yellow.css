@@ -1,0 +1,15 @@
+/* =================================================================== */
+/* YELLOW #ffb400
+====================================================================== */
+
+.home h1,
+#menu li.active a {
+	color: #ffb400;
+}
+
+.header ul.icon-menu li.icon-box.active,
+.header ul.icon-menu li.icon-box:hover,
+.header .icon-box h2,
+.home .color-block {
+	background-color: #ffb400;
+}
