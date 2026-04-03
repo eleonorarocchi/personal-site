@@ -20,18 +20,14 @@ const Home: FC<HomeProps> = () => (
                         <h6 className="open-sans-font role-title">CTO @ P-LAB S.R.L.</h6>
                         <p className="open-sans-font">Appassionata di software e tecnologia: oggi progetto e guido soluzioni con l&apos;obiettivo di migliorare concretamente la vita di chi mi circonda.</p>
                         <div className="social-links">
-                            {}
-                            <a href="https://x.com/eleonora_rocchi" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
-                                <i className="fa fa-twitter"></i>
-                            </a>
                             <a href="https://www.linkedin.com/in/eleonora-rocchi/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                                 <i className="fa fa-linkedin"></i>
                             </a>
-                            <a href="https://www.youtube.com/@e-project-b3k" target="_blank" rel="noopener noreferrer" title="YouTube">
-                                <i className="fa fa-youtube"></i>
-                            </a>
                             <a href="https://dev.to/eleonorarocchi" target="_blank" rel="noopener noreferrer" title="dev.to">
                                 <span className="devto-icon">DEV</span>
+                            </a>
+                            <a href="https://x.com/eleonora_rocchi" target="_blank" rel="noopener noreferrer" title="X (Twitter)">
+                                <i className="fa fa-twitter"></i>
                             </a>
                         </div>
                     </div>
