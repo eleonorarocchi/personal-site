@@ -47,6 +47,12 @@ const typeLabel: Record<InitiativeType, string> = {
 
 const initiatives: Initiative[] = [
   {
+    "title": "The Anatomy of an Effective Prompt: Key Techniques from Google’s Guide",
+    "date": "Apr 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/the-anatomy-of-an-effective-prompt-key-techniques-from-googles-guide-119c" 
+  },
+  {
     "title": "Getting Started with the Gemini API: A Practical Guide",
     "date": "Apr 2026",
     "type": "article",
