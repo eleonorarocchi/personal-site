@@ -47,6 +47,24 @@ const typeLabel: Record<InitiativeType, string> = {
 
 const initiatives: Initiative[] = [
   {
+    "title": "Harness Engineering: The Most Important Part of AI Agents",
+    "date": "Apr 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/harness-engineering-la-parte-piu-importante-degli-agenti-ai-4jnd" 
+  },
+  {
+    "title": "Local LLM with Google Gemma: On-Device Inference Between Theory and Practice",
+    "date": "Apr 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/local-llm-with-google-gemma-on-device-inference-between-theory-and-practice-4lbn"
+  },
+  {
+    "title": "Prompt Injection: Anatomy of the Most Critical Attack on LLMs",
+    "date": "Apr 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/prompt-injection-anatomy-of-the-most-critical-attack-on-llms-56pn"
+  },
+  {
     "title": "The Anatomy of an Effective Prompt: Key Techniques from Google’s Guide",
     "date": "Apr 2026",
     "type": "article",
