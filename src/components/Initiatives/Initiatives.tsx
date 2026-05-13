@@ -47,6 +47,30 @@ const typeLabel: Record<InitiativeType, string> = {
 
 const initiatives: Initiative[] = [
   {
+    "title": "How Stripe, Shopify, and Airbnb Build AI Harnesses",
+    "date": "May 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/how-stripe-shopify-and-airbnb-build-ai-harnesses-1i6l"
+  },
+  {
+    "title": "Anthropic and the Runtime Harness for Persistent Agents",
+    "date": "May 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/anthropic-and-the-runtime-harness-for-persistent-agents-4mf2"
+  },
+  {
+    "title": "OpenAI and the New Cognitive Architecture of Software Repositories",
+    "date": "Apr 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/openai-and-the-new-cognitive-architecture-of-software-repositories-383m"
+  },
+  {
+    "title": "Building a Harness: From Prototype to Production",
+    "date": "Apr 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/building-a-harness-from-prototype-to-production-o30"  
+  },
+  {
     "title": "Harness Engineering: The Most Important Part of AI Agents",
     "date": "Apr 2026",
     "type": "article",
