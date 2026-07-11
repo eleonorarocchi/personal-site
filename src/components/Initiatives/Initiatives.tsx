@@ -47,6 +47,30 @@ const typeLabel: Record<InitiativeType, string> = {
 
 const initiatives: Initiative[] = [
   {
+    "title": "Setting Up a Local AI Coding Agent with Ollama and Aider",
+    "date": "Jul 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/setting-up-a-local-ai-coding-agent-with-ollama-and-aider-1jdi"
+  },
+  {
+    "title": "If AI writes code, what is our job now?",
+    "date": "Jul 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/if-ai-writes-code-what-is-our-job-now-106a"
+  },
+  {
+    "title": "Generator-Evaluator Loops for AI Agents",
+    "date": "May 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/generator-evaluator-loops-for-ai-agents-4kd2"
+  },
+  {
+    "title": "Why AI Agents can’t judge themselves",
+    "date": "May 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/why-ai-agents-cant-judge-themselves-24fc"   
+  },
+  {
     "title": "How Stripe, Shopify, and Airbnb Build AI Harnesses",
     "date": "May 2026",
     "type": "article",
