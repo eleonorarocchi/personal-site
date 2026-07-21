@@ -17,6 +17,7 @@
     transform: rotate(-15deg);
     left: -83%;
     top: -50%;
+    z-index: 0;
 }
 
 .bg {
@@ -25,11 +26,22 @@
     background-repeat: no-repeat;
     background-position: top;
     height: calc(100vh - 60px);
+    position: absolute;
+    top: 30px;
     z-index: 111;
     border-radius: 15px;
     left: 30px;
-    top: 30px;
     box-shadow: 0 0 7px rgba(0,0,0,.9);
+}
+
+@media (min-width: 992px) {
+    .home-details-container {
+        min-height: calc(100vh - 60px);
+    }
+}
+
+.home-details-container {
+    position: relative;
 }
 
 .container-home {
@@ -386,4 +398,79 @@
     .custom-title {
         font-size: 21px;
     }
+}
+
+/* CTA theme styles */
+.home-ctas {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    margin-bottom: 10px;
+}
+
+.home-ctas .btn {
+    --accent: #ffb400;
+    background-color: var(--accent);
+    color: #111;
+    border-color: transparent;
+    box-shadow: none;
+    padding: 8px 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color .15s ease, transform .06s ease;
+}
+
+.home-ctas .btn:hover,
+.home-ctas .btn:focus {
+    background-color: #f2a900;
+    color: #111;
+    transform: translateY(-1px);
+}
+
+.home-ctas .btn.btn-outline-primary {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.home-ctas .btn.btn-outline-primary:hover {
+    background-color: rgba(255,180,0,0.08);
+    color: #fff;
+}
+
+/* Research section styles */
+.research-section {
+    position: relative;
+    z-index: 5;
+    padding: 48px 18px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+.section-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #111;
+}
+
+.research-column {
+    text-align: center;
+    padding: 18px 12px;
+}
+
+.research-column h3 {
+    color: #ffb400;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.research-column p {
+    color: #444;
+    line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+    .research-section { padding: 28px 12px; }
+    .section-title { font-size: 20px; }
 }

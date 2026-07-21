@@ -47,6 +47,18 @@ const typeLabel: Record<InitiativeType, string> = {
 
 const initiatives: Initiative[] = [
   {
+    "title": "Setting Up a Local AI Coding Agent with Ollama and Aider (part 3)",
+    "date": "Jul 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/setting-up-a-local-ai-coding-agent-with-ollama-and-aider-part-3-23gk"
+  },
+  {
+    "title": "Setting Up a Local AI Coding Agent with Ollama and Aider (part 2)",
+    "date": "Jul 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/setting-up-a-local-ai-coding-agent-with-ollama-and-aider-part-2-1ngk"
+  },
+  {
     "title": "Setting Up a Local AI Coding Agent with Ollama and Aider",
     "date": "Jul 2026",
     "type": "article",
