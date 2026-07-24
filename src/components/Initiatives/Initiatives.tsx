@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import Header from '../Header/Header.tsx';
+import Header from '../Header/Header';
 import './Initiatives.css';
 
 type InitiativeType = 'article' | 'talk' | 'video';
@@ -183,6 +183,12 @@ const initiatives: Initiative[] = [
     "date": "Mar 2023",
     "type": "talk",
     "link": "https://2023.cssday.it/talks_speakers/index.html"     
+  },
+  {
+    "title": "Trip on trig: alla scoperta della trigonometria",
+    "date": "Mar 2023",
+    "type": "video",
+    "link": "https://www.youtube.com/watch?v=cKRHImMH8UU&t=402s"
   },
   {
     "title": "Where publish nodeJs+Angular app for free",
@@ -713,6 +719,7 @@ const Initiatives: FC = () => {
             <Header />
             <section className="container-fluid main-container p-0">
                 <div className="row home-details-container">
+                    <div className="color-block d-none d-lg-block"></div>
                     <div className="col-lg-4 bg position-fixed d-none d-lg-block"></div>
                     <div className="col-12 col-lg-8 offset-lg-4 main-content">
                         <div className="initiatives-wrapper">

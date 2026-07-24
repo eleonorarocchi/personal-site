@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import imgMobile from '../../assets/img/img-mobile.jpg';
-import Header from '../Header/Header.tsx';
+import Header from '../Header/Header';
 
 interface HomeProps {}
 
@@ -45,24 +45,62 @@ const Home: FC<HomeProps> = () => (
                 </div>
             </div>
         </section>
-        <section className="container research-section mt-5" style={{display: 'none'} }>
+        <section className="container research-section mt-5">
             <div className="row">
                 <div className="col-12">
-                    <h2 className="section-title text-center">IL MIO SPAZIO DI RICERCA</h2>
+                    <h2 className="section-title text-center">Aree di interesse</h2>
                 </div>
             </div>
             <div className="row mt-4">
                 <div className="col-12 col-md-4 research-column">
                     <h3>Agent Engineering</h3>
-                    <p>Ricerco pratiche, design pattern e harness per costruire agenti affidabili e manutenibili.</p>
+                    <ul>
+                        <li>orchestrazione</li>
+                        <li>tool calling</li>
+                        <li>workflow</li>
+                        <li>memoria</li>
+                        <li>progettazione di agenti</li>
+                    </ul>
                 </div>
                 <div className="col-12 col-md-4 research-column">
                     <h3>AI Evaluation</h3>
-                    <p>Sviluppo approcci di valutazione qualitativa e quantitativa per modelli e sistemi AI.</p>
+                    <ul>
+                        <li>harness</li>
+                        <li>benchmark</li>
+                        <li>metriche</li>
+                        <li>dataset</li>
+                        <li>testing</li>
+                    </ul>
                 </div>
                 <div className="col-12 col-md-4 research-column">
                     <h3>Software Architecture</h3>
-                    <p>Progetto architetture scalabili e sicure per integrare LLM e componenti AI in prodotto.</p>
+                    <ul>
+                        <li>backend</li>
+                        <li>cloud</li>
+                        <li>distribuited systems</li>
+                        <li>integrazione AI</li>
+                        <li>engineering</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+         <section className="container featured-series-section mt-5">
+            <div className="row justify-content-center">
+                <div className="col-12">
+                    <div className="featured-series-card">
+                        <div className="featured-series-content">
+                            <span className="featured-series-label">Serie in evidenza</span>
+                            <h2 className="featured-series-title">Serie: Harness Engineering</h2>
+                            <p className="featured-series-description">
+                                Una guida pratica per progettare harness di valutazione per sistemi AI e applicazioni basate su LLM.
+                            </p>
+                            <div className="featured-series-actions">
+                                <a href="https://dev.to/eleonorarocchi/harness-engineering-la-parte-piu-importante-degli-agenti-ai-4jnd" target="_blank" rel="noopener noreferrer" className="featured-series-btn">
+                                    Esplora la serie completa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

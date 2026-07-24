@@ -20,6 +20,10 @@ const Header: FC = () => {
                     <i className="fa fa-star"></i>
                     <Link to="/iniziative"><h2>Iniziative</h2></Link>
                 </li>
+                <li className={`icon-box ${location.pathname === '/conferenze' ? 'active' : ''}`}>
+                    <i className="fa fa-calendar"></i>
+                    <Link to="/conferenze"><h2>Conferenze</h2></Link>
+                </li>
             </ul>
             <nav role="navigation" className="d-block d-lg-none">
                 <div id="menuToggle">
@@ -36,6 +40,11 @@ const Header: FC = () => {
                         <li className={location.pathname === '/iniziative' ? 'active' : ''}>
                             <Link to="/iniziative" onClick={closeMenu}>
                                 <i className="fa fa-star"></i><span>Iniziative</span>
+                            </Link>
+                        </li>
+                        <li className={location.pathname === '/conferenze' ? 'active' : ''}>
+                            <Link to="/conferenze" onClick={closeMenu}>
+                                <i className="fa fa-calendar"></i><span>Conferenze</span>
                             </Link>
                         </li>
                     </ul>
