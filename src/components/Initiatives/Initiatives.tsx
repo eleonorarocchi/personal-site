@@ -47,6 +47,12 @@ const typeLabel: Record<InitiativeType, string> = {
 
 const initiatives: Initiative[] = [
   {
+    "title": "How I Use Codex to Build Applications Without Losing Control",
+    "date": "Jul 2026",
+    "type": "article",
+    "link": "https://dev.to/eleonorarocchi/how-i-use-codex-to-build-applications-without-losing-control-18l7" 
+  },
+  {
     "title": "Setting Up a Local AI Coding Agent with Ollama and Aider (part 4)",
     "date": "Jul 2026",
     "type": "article",
