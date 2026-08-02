@@ -16,7 +16,7 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-const googleAnalyticsId = process.env.REACT_APP_GOOGLE_ANALYTICS_ID;
+const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_ID;
 
 if (googleAnalyticsId) {
   const existingScript = document.querySelector(`script[data-google-analytics="${googleAnalyticsId}"]`);
