@@ -90,10 +90,7 @@ const normalizeAirtableRecords = (records: AirtableRecord[]): Initiative[] =>
             .filter(item => item.title && item.link)
     ).map(({ sortableDate, ...item }) => item);
 
-const AIRTABLE_API_URL = process.env.REACT_APP_AIRTABLE_API_URL || 'https://api.airtable.com/v0';
-const AIRTABLE_BASE_ID = process.env.REACT_APP_AIRTABLE_BASE_ID;
-const AIRTABLE_TABLE_NAME = process.env.REACT_APP_AIRTABLE_TABLE_NAME;
-const AIRTABLE_API_KEY = process.env.REACT_APP_AIRTABLE_API_KEY;
+const AIRTABLE_API_URL = '/api/airtable-initiatives';
 
 const initiatives: Initiative[] = [];
 
@@ -112,24 +109,14 @@ const Initiatives: FC = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const hasAirtableConfig = Boolean(AIRTABLE_API_KEY && AIRTABLE_BASE_ID && AIRTABLE_TABLE_NAME);
-
-        if (!hasAirtableConfig) {
-            setIsLoading(false);
-            return;
-        }
-
-        const endpoint = `${AIRTABLE_API_URL}/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE_NAME)}?view=Grid%20view`;
-
-        fetch(endpoint, {
+        fetch(AIRTABLE_API_URL, {
             headers: {
-                Authorization: `Bearer ${AIRTABLE_API_KEY}`,
                 Accept: 'application/json',
             },
         })
             .then(async response => {
                 if (!response.ok) {
-                    throw new Error(`Airtable request failed with status ${response.status}`);
+                    throw new Error(`Initiatives request failed with status ${response.status}`);
                 }
 
                 const payload = await response.json();
@@ -152,48 +139,48 @@ const Initiatives: FC = () => {
         <div className="home scrollable">
             <Header />
             <section className="container-fluid main-container p-0">
-                <div className="row home-details-container">
-                    <div className="color-block d-none d-lg-block"></div>
-                    <div className="col-lg-4 bg position-fixed d-none d-lg-block"></div>
-                    <div className="col-12 col-lg-8 offset-lg-4 main-content">
-                        <div className="initiatives-wrapper">
-                            <h3 className="text-uppercase poppins-font initiatives-title pb-3">
-                                Le mie <span>Iniziative</span>
-                            </h3>
-                            <div className="initiatives-filters">
-                                {filters.map(f => (
-                                    <button
-                                        key={f.key}
-                                        className={`filter-btn${activeFilter === f.key ? ' active' : ''}`}
-                                        onClick={() => setActiveFilter(f.key)}
-                                    >
-                                        {f.label}
-                                    </button>
-                                ))}
+                    <div className="row home-details-container">
+                        <div className="color-block d-none d-lg-block"></div>
+                        <div className="col-lg-4 bg position-fixed d-none d-lg-block"></div>
+                        <div className="col-12 col-lg-8 offset-lg-4 main-content">
+                            <div className="initiatives-wrapper">
+                                <h3 className="text-uppercase poppins-font initiatives-title pb-3">
+                                    Le mie <span>Iniziative</span>
+                                </h3>
+                                <div className="initiatives-filters">
+                                    {filters.map(f => (
+                                        <button
+                                            key={f.key}
+                                            className={`filter-btn${activeFilter === f.key ? ' active' : ''}`}
+                                            onClick={() => setActiveFilter(f.key)}
+                                        >
+                                            {f.label}
+                                        </button>
+                                    ))}
+                                </div>
+                                {isLoading ? (
+                                    <p className="open-sans-font initiatives-empty">Caricamento iniziative…</p>
+                                ) : visible.length === 0 ? (
+                                    <p className="open-sans-font initiatives-empty">Nessuna iniziativa in questa categoria.</p>
+                                ) : (
+                                    visible.map((item, index) => (
+                                        <a key={`${item.title}-${index}`} href={item.link} target="_blank" rel="noopener noreferrer" className="initiative-item">
+                                            <div className="initiative-icon">
+                                                <i className={`fa ${typeIcon[item.type]}`}></i>
+                                            </div>
+                                            <div className="initiative-details">
+                                                <span className="initiative-type">{typeLabel[item.type]}</span>
+                                                <h5 className="initiative-title poppins-font">{item.title}</h5>
+                                                <span className="initiative-date open-sans-font">{item.date}</span>
+                                            </div>
+                                        </a>
+                                    ))
+                                )}
                             </div>
-                            {isLoading ? (
-                                <p className="open-sans-font initiatives-empty">Caricamento iniziative…</p>
-                            ) : visible.length === 0 ? (
-                                <p className="open-sans-font initiatives-empty">Nessuna iniziativa in questa categoria.</p>
-                            ) : (
-                                visible.map((item, index) => (
-                                    <a key={`${item.title}-${index}`} href={item.link} target="_blank" rel="noopener noreferrer" className="initiative-item">
-                                        <div className="initiative-icon">
-                                            <i className={`fa ${typeIcon[item.type]}`}></i>
-                                        </div>
-                                        <div className="initiative-details">
-                                            <span className="initiative-type">{typeLabel[item.type]}</span>
-                                            <h5 className="initiative-title poppins-font">{item.title}</h5>
-                                            <span className="initiative-date open-sans-font">{item.date}</span>
-                                        </div>
-                                    </a>
-                                ))
-                            )}
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
     );
 };
 
