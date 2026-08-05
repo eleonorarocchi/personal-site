@@ -8,6 +8,7 @@ import './assets/css/style.css';
 import './assets/css/yellow.css';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Conferences from "./components/Conferences/Conferences.tsx";
+import Article from "./components/Article/Article.tsx";
 
 function RouteChangeTracker() {
   const location = useLocation();
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/iniziative" element={<Initiatives />} />
+        <Route path="/articolo/:slug" element={<Article />} />
         <Route path="/conferenze" element={<Conferences />} />
       </Routes>
     </Router>

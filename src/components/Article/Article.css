@@ -1,0 +1,51 @@
+.article-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.article-loader__pulse {
+    width: 220px;
+    height: 70px;
+}
+
+.article-loader__pulse polyline {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 260;
+    stroke-dashoffset: 260;
+    animation: article-heartbeat 1.5s linear infinite;
+}
+
+@keyframes article-heartbeat {
+    0% {
+        stroke-dashoffset: 260;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    70% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: -260;
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .article-loader__pulse polyline {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+}

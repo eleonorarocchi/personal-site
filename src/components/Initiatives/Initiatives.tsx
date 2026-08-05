@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import Header from '../Header/Header';
+import { getMarkdownArticles } from './MarkdownArticles.tsx';
 import './Initiatives.css';
 
 type InitiativeType = 'article' | 'talk' | 'video';
@@ -9,6 +10,7 @@ interface Initiative {
     date: string;
     type: InitiativeType;
     link: string;
+    sortableDate?: string;
 }
 
 interface AirtableRecord {
@@ -50,14 +52,10 @@ const formatDateLabel = (date: string): string => {
     }).format(parsed).replace('.', '').toUpperCase();
 };
 
-interface AirtableInitiative extends Initiative {
-    sortableDate: string;
-}
-
-const sortInitiativesDescending = (items: AirtableInitiative[]): AirtableInitiative[] =>
+const sortInitiativesDescending = (items: Initiative[]): Initiative[] =>
     [...items].sort((a, b) => {
-        const aDate = new Date(a.sortableDate).getTime();
-        const bDate = new Date(b.sortableDate).getTime();
+        const aDate = new Date(a.sortableDate || '').getTime();
+        const bDate = new Date(b.sortableDate || '').getTime();
 
         if (Number.isNaN(aDate) && Number.isNaN(bDate)) {
             return 0;
@@ -88,7 +86,7 @@ const normalizeAirtableRecords = (records: AirtableRecord[]): Initiative[] =>
                 };
             })
             .filter(item => item.title && item.link)
-    ).map(({ sortableDate, ...item }) => item);
+    );
 
 const AIRTABLE_API_URL = '/api/airtable-initiatives';
 
@@ -120,8 +118,14 @@ const Initiatives: FC = () => {
                 }
 
                 const payload = await response.json();
-                const mapped = normalizeAirtableRecords(payload.records || []);
-                setData(mapped.length > 0 ? mapped : initiatives);
+                const airtable = normalizeAirtableRecords(payload.records || []);
+                const markdown = getMarkdownArticles();
+                const merged = sortInitiativesDescending([
+                    ...airtable,
+                    ...markdown,
+                ]);
+
+                setData(merged.length > 0 ? merged : initiatives);
             })
             .catch(() => {
                 setData(initiatives);
@@ -159,12 +163,30 @@ const Initiatives: FC = () => {
                                     ))}
                                 </div>
                                 {isLoading ? (
-                                    <p className="open-sans-font initiatives-empty">Caricamento iniziative…</p>
+                                        <div
+                                            className="article-loader"
+                                            role="status"
+                                            aria-label="Caricamento iniziative"
+                                        >
+                                            <svg
+                                                className="article-loader__pulse"
+                                                viewBox="0 0 200 60"
+                                                aria-hidden="true"
+                                            >
+                                                <polyline
+                                                    points="0,30 45,30 55,20 65,42 78,8 92,50 105,30 200,30"
+                                                />
+                                            </svg>
+
+                                            <span className="visually-hidden">
+                                                Caricamento iniziative…
+                                            </span>
+                                        </div>
                                 ) : visible.length === 0 ? (
                                     <p className="open-sans-font initiatives-empty">Nessuna iniziativa in questa categoria.</p>
                                 ) : (
                                     visible.map((item, index) => (
-                                        <a key={`${item.title}-${index}`} href={item.link} target="_blank" rel="noopener noreferrer" className="initiative-item">
+                                        <a key={`${item.title}-${index}`} href={item.link} className="initiative-item">
                                             <div className="initiative-icon">
                                                 <i className={`fa ${typeIcon[item.type]}`}></i>
                                             </div>

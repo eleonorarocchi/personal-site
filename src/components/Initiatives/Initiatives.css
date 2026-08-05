@@ -139,6 +139,80 @@
     color: #888;
 }
 
+/* [ Markdown Section ] */
+.initiatives-markdown-section {
+    margin-top: 34px;
+    padding-top: 18px;
+    border-top: 1px solid #252525;
+}
+
+.initiatives-markdown-title {
+    margin: 0 0 18px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.initiatives-markdown-title span {
+    color: #ffb400;
+}
+
+.article-content {
+    color: #fff;
+}
+
+.article-body {
+    line-height: 1.8;
+    font-size: 15px;
+    color: #e5e5e5;
+}
+
+.article-body p,
+.article-body ul,
+.article-body ol,
+.article-body blockquote,
+.article-body pre,
+.article-body code {
+    margin-bottom: 18px;
+}
+
+.article-body a {
+    color: #ffb400;
+}
+
+.article-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+
+.article-body h1,
+.article-body h2,
+.article-body h3,
+.article-body h4,
+.article-body h5,
+.article-body h6 {
+    color: #fff;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.article-body code {
+    background: #1c1c1c;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.article-body pre {
+    background: #1c1c1c;
+    padding: 14px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
 /* [ Responsive ] */
 @media (max-width: 991px) {
     .initiatives-wrapper {
@@ -157,5 +231,57 @@
 
     .initiative-title {
         font-size: 15px;
+    }
+}
+
+.article-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.article-loader__pulse {
+    width: 220px;
+    height: 70px;
+}
+
+.article-loader__pulse polyline {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 260;
+    stroke-dashoffset: 260;
+    animation: article-heartbeat 1.5s linear infinite;
+}
+
+@keyframes article-heartbeat {
+    0% {
+        stroke-dashoffset: 260;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    70% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: -260;
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .article-loader__pulse polyline {
+        animation: none;
+        stroke-dashoffset: 0;
     }
 }
