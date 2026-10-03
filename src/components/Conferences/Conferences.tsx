@@ -9,6 +9,10 @@ interface Conference {
 
 const conferences: Conference[] = [
     {
+        title: '1nn0vAI by 1nn0va',
+        date: '2026',
+    },
+    {
         title: 'AIConf by Improove',
         date: '2026',
     },
