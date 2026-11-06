@@ -9,6 +9,10 @@ interface Conference {
 
 const conferences: Conference[] = [
     {
+        title: 'Codemotion Milan',
+        date: '2026',
+    },
+    {
         title: '1nn0vAI by 1nn0va',
         date: '2026',
     },
